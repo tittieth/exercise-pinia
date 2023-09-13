@@ -1,12 +1,27 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTodoListStore } from '@/stores/todoList';
+import { ref } from 'vue';
 
-<template><div></div></template>
+const todo = ref('');
 
-<style scoped>
-h1 {
-  background-color: aliceblue;
+const store = useTodoListStore();
+
+const addTodoAndClearInput = (item: string) => {
+    if (item.length === 0) {
+        return
+    }
+    store.addTodo(item)
+    todo.value = '';
 }
-h2 {
-  background-color: aqua;
-}
-</style>
+</script>
+
+<template>
+  <div>
+    <form @submit.prevent="addTodoAndClearInput(todo)">
+        <input v-model="todo" type="text" /> 
+        <button>Add</button>
+    </form>
+  </div>
+</template>
+
+<style scoped></style>
