@@ -6,8 +6,16 @@ import TodoApp from './components/TodoApp.vue';
   <TodoApp />
 </template>
 
-<style scoped>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
+  background-color: #597d9a;
+  display: flex;
+  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: #2c3e50;
